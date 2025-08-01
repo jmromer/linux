@@ -8,7 +8,7 @@ export XDG_CONFIG_HOME="${HOME}/.config"  # configuration files (also set in Lau
 export XDG_STATE_HOME="${HOME}/.local/state"    # state files (logs, history, recently used files, current app state, etc)
 export XDG_CACHE_HOME="${HOME}/.cache"    # ephemeral data files
 
-export XDG_RUNTIME_DIR="${HOME}/.sockets" # ephemeral runtime files (sockets, named pipes, etc)
+# DO NOT SET: XDG_RUNTIME_DIR="${HOME}/.sockets" # ephemeral runtime files (sockets, named pipes, etc)
 export XDG_LOCALS_DIR="${DOTFILES_DIR}/locals"   # un-synced, un-tracked dotfiles (not spec)
 export XDG_SECURE_DIR="${DOTFILES_DIR}/secure"   # synced, tracked sensitive dotfiles (not spec)
 
