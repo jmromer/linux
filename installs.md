@@ -1,7 +1,7 @@
 ## Packages
 
 ```
-sudo apt install input-remapper nvidia-cuda-toolkit ulauncher wget
+sudo apt install input-remapper nvidia-cuda-toolkit ulauncher wget kitty tmux
 sudo snap install mojave-themes
 flatpak install extensionmanager
 ```

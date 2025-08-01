@@ -1,0 +1,2 @@
+# ~/.config/kitty/startup.session
+launch zsh -c 'tmux new -As kitty zellij'
