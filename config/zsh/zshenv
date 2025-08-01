@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-
 export DOTFILES_DIR="${HOME}/linux"
 
 # user-specific data locations
@@ -58,7 +57,7 @@ export HOMEBREW_PREFIX
 
 [ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export ORG_HOME="${HOME}/Org"
+export ORG_HOME="${HOME}/org"
 
 export FZF_DEFAULT_OPTS="
   --no-multi
