@@ -19,8 +19,9 @@ compinit
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
 
-
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(mise activate bash)"
+
 export PATH="$HOME/.config/emacs/bin:$PATH"
 export PATH="$HOME/linux/bin:$PATH"
 export PATH="./bin:$HOME/.local/bin:$PATH"
