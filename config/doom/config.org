@@ -1755,6 +1755,12 @@ renderMarkdown();
 
 https://orgmode.org/manual
 
+** configuration
+Display mixed variable and fixed pitch.
+#+begin_src elisp
+(add-hook! org-mode #'mixed-pitch-mode)
+#+end_src
+
 ** commands
 
 #+begin_src elisp
