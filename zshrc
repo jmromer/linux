@@ -238,6 +238,60 @@ compinit
 compdef g=git
 setopt complete_aliases
 
+#-------------------------------------------------------------
+# KEY MAPS
+#-------------------------------------------------------------
+# zle defs
+
+zle -N fzf-file-widget
+zle -N prefix-2
+
+# all modes
+
+# bindkey "^\\" [unused]
+bindkey "^[[3"  prefix-2         # ensure delete backwards deletes
+bindkey "^[[3~" delete-char      # ensure delete forwards deletes
+bindkey "^t"    fzf-file-widget  # invoke FZF file finder
+bindkey "^x"    after-first-word # move cursor to flag-insert position
+bindkey "^z"    ctrlz
+
+# string-based
+
+bindkey -s "^h" "cd\n" # cd with pd
+bindkey -s "^\]" "g cob\n" # change branches with pd
+
+# emacs mode
+
+bindkey -M emacs '^y' accept-and-hold
+bindkey -M emacs '^o' push-line-or-edit
+
+# vi insert mode
+
+bindkey -M viins '^a' beginning-of-line
+bindkey -M viins '^b' backward-char
+bindkey -M viins '^d' delete-char
+bindkey -M viins '^e' end-of-line
+bindkey -M viins '^f' forward-char
+bindkey -M viins '^k' kill-line
+bindkey -M viins '^n' down-line-or-beginning-search
+bindkey -M viins '^o' push-line-or-edit  # stash command, issue another, restore stash
+bindkey -M viins '^p' up-line-or-beginning-search
+bindkey -M viins '^r' history-incremental-search-backward
+bindkey -M viins '^y' accept-and-hold    # issue the command, but keep it at the prompt
+
+# vi command mode
+
+bindkey -M vicmd '^n' down-line-or-beginning-search
+bindkey -M vicmd '^p' up-line-or-beginning-search
+bindkey -M vicmd '^r' history-incremental-search-backward
+
+# arrow keys trigger history searching
+
+bindkey '\e[A' up-line-or-beginning-search
+bindkey '\e[B' down-line-or-beginning-search
+bindkey -s '\eOA' '\e[A'
+bindkey -s '\eOB' '\e[B'
+
 
 if command -v fzf &> /dev/null; then
   if [[ -f /usr/share/bash-completion/completions/fzf ]]; then
