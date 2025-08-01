@@ -1,0 +1,14 @@
+[general]
+import = [ "~/.config/alacritty/theme.toml", "~/.config/alacritty/font.toml", "~/.config/alacritty/font-size.toml", "~/.config/alacritty/shared.toml" ]
+
+# [window]
+# startup_mode = "Fullscreen"
+
+[keyboard]
+bindings = [
+  { key = "C", mods = "Super", action = "Copy" },
+  { key = "V", mods = "Super", action = "Paste" },
+]
+
+[terminal.shell]
+program = "zellij"
