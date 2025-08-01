@@ -245,6 +245,12 @@
 	includePullRequestsSection = false
 	includeIssuesSection = false
 
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
+
 #[include]
 # 	path = ~/ubuntu/secure/config/git/config
 # 	path = ~/ubuntu/locals/config/git/config
