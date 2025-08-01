@@ -19,6 +19,8 @@ export XDG_SECURE_DIR="${DOTFILES_DIR}/secure"   # synced, tracked sensitive dot
 # base directories to search for configuration files in addition to the $XDG_CONFIG_HOME base directory.
 # export XDG_CONFIG_DIRS="/etc/xdg"
 
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+
 # Homebrew setup
 # -----------------------------
 # n-1: http://archlever.blogspot.com/2013/09/lies-damned-lies-and-truths-backed-by.html
@@ -81,3 +83,11 @@ export MISE_PYTHON_DEFAULT_PACKAGES_FILE="${XDG_CONFIG_HOME}/mise/default-librar
 # extra config options for installs
 export POSTGRES_EXTRA_CONFIGURE_OPTIONS="--with-uuid=e2fs --with-libxml"
 export REDIS_EXTRA_CONFIGURE_OPTIONS="BUILD_TLS=yes"
+
+# --------- PATH --------
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(mise activate bash)"
+export PATH="$HOME/.config/emacs/bin:$PATH"
+export PATH="$HOME/linux/bin:$PATH"
+export PATH="./bin:$HOME/.local/bin:$PATH"
+
