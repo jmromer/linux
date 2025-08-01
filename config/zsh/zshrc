@@ -61,6 +61,15 @@ export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS=' --no-init --RAW-CONTROL-CHARS --quit-if-one-screen '
 
 #-------------------------------------------------------------
+# ZSH
+#-------------------------------------------------------------
+# GENERAL
+#-------------------------------------------------------------
+setopt extendedglob # Enable extended globbing
+unsetopt nomatch    # Allow [ or ] wherever you want
+autoload -U zmv     # rename files like zmv '(*).txt' '$1.html'
+
+#-------------------------------------------------------------
 # HISTORY SETTINGS
 #-------------------------------------------------------------
 export HISTFILE="${XDG_STATE_HOME}/zsh/history"
@@ -253,6 +262,100 @@ compinit
 
 compdef g=git
 setopt complete_aliases
+
+#-------------------------------------------------------------
+# Zsh Plugins (load last)
+#-------------------------------------------------------------
+
+if [[ -z "${INSIDE_EMACS}" ]]; then
+  source "${HOMEBREW_PREFIX}/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+fi
+
+. "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+#-------------------------------------------------------------
+# CURSOR POSITIONING
+#-------------------------------------------------------------
+# Position cursor after ARG[0] (for argument/flag entry)
+after-first-word() {
+    zle beginning-of-line
+    zle forward-word
+}
+
+zle -N after-first-word
+
+#-------------------------------------------------------------
+# vi / emacs modes
+#-------------------------------------------------------------
+if [[ -z "${INSIDE_EMACS}" ]]; then
+    # Change cursor shape for different vi modes.
+    zle-keymap-select() {
+        if [[ ${KEYMAP} == vicmd ]] ||
+            [[ $1 = 'block' ]]; then
+            echo -ne '\e[1 q'
+        elif [[ ${KEYMAP} == main ]] ||
+                [[ ${KEYMAP} == viins ]] ||
+                [[ ${KEYMAP} = '' ]] ||
+                [[ $1 = 'beam' ]]; then
+            echo -ne '\e[5 q'
+        fi
+    }
+
+    zle -N zle-keymap-select
+
+    # no lag after pressing ESC to enter normal mode
+    export KEYTIMEOUT=5
+
+    # set vi keybindings
+    bindkey -v
+
+    echo -ne '\e[5 q' # Use beam shape cursor on startup.
+    preexec() { echo -ne '\e[5 q'; } # Use beam shape cursor for each new prompt.
+fi
+
+#-------------------------------------------------------------
+# HISTORY SEARCH
+#-------------------------------------------------------------
+# back-i-search should begin with the current word
+setopt complete_in_word
+
+autoload -U down-line-or-beginning-search
+autoload -U up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+
+#-------------------------------------------------------------
+# Use ctrl-z as a toggle
+#-------------------------------------------------------------
+
+ctrlz() {
+    if [[ $#BUFFER -eq 0 ]]; then
+        fg >/dev/null 2>&1 && zle redisplay
+    else
+        zle push-input
+    fi
+}
+
+zle -N ctrlz
+
+#-------------------------------------------------------------
+# Use cd with pd
+#-------------------------------------------------------------
+cd() {
+    # pd is installed, use it to resolve the target
+    if type pd >/dev/null; then
+      target="$(pd "$1")"
+    else
+      target="${@}"
+    fi
+
+    # if the target is a directory or begins with a '-', delegate to builtin cd
+    if [[ "${target}" == -* ]] || [[ -d "${target}" ]]; then
+      builtin cd "${target}"
+    else
+      echo "Directory Not Found: ${target//$HOME/~}"
+    fi
+}
 
 #-------------------------------------------------------------
 # KEY MAPS
