@@ -293,3 +293,34 @@ zsdoc/data
 !/tests/_output/.gitkeep
 
 # End of https://www.toptal.com/developers/gitignore/api/vim,emacs,linux,python,zsh
+
+/config/.gsd-keyboard.settings-ported
+/config/Code/
+/config/QtProject.conf
+/config/Typora/
+/config/autostart/
+/config/dconf/
+/config/emacs/
+/config/evolution/
+/config/fastfetch/
+/config/flameshot/
+/config/gnome-initial-setup-done
+/config/gnome-xdg-terminals.list
+/config/go/
+/config/google-chrome/
+/config/gtk-3.0/
+/config/ibus/
+/config/lazygit/
+/config/mimeapps.list
+/config/monitors.xml
+/config/nvim/
+/config/pulse/
+/config/systemd/
+/config/tiling-assistant/
+/config/toshy/
+/config/ubuntu-xdg-terminals.list
+/config/ulauncher/
+/config/update-notifier/
+/config/user-dirs.dirs
+/config/user-dirs.locale
+/config/xdg-terminals.list
