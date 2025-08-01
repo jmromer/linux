@@ -123,55 +123,54 @@
 	# plumbing
 	i        = init
 	ig       = ignore
-#	bh       = bisect-helper
-#	sf       = select-files
-#	cp       = cherry-pick
+	bh       = bisect-helper
+	sf       = select-files
+	cp       = cherry-pick
 
-#	# time tracking
-#	cli      = clock-in
-#	clo      = clock-out
-#	cloe     = clock-out-with-editor
+	# time tracking
+	cli      = clock-in
+	clo      = clock-out
+	cloe     = clock-out-with-editor
 
 	# checkout
 	co       = checkout
-#	co-      = !"git checkout -- $(git select-files) && git status --short"
-#	cob      = checkout-branch
-#	coba     = checkout-branch --all
-#	coc      = checkout-commit
+	co-      = !"git checkout -- $(git select-files) && git status --short"
+	cob      = checkout-branch
+	coba     = checkout-branch --all
+	coc      = checkout-commit
 	cours    = checkout --ours
 	ctheirs  = checkout --theirs
 
 	# sha selection
-#	sha      = select-sha
-#	ahs      = select-sha-reversed
-#	shacp    = !sh -c 'git select-sha | pbcopy'
-#	ahscp    = !sh -c 'git select-sha-reversed | pbcopy'
+	sha      = select-sha
+	ahs      = select-sha-reversed
+	shacp    = !sh -c 'git select-sha | pbcopy'
+	ahscp    = !sh -c 'git select-sha-reversed | pbcopy'
 
 	# branch management
 	b        = branch -vv
-#	bc       = create-branch-with-remote
-#	bcl      = create-branch
-#	bcc      = create-branch-continuation
-#	bd       = delete-branch
-#	bdf      = branch -D
-#	bdo      = clear-deleted-branches
+	bc       = create-branch-with-remote
+	bcl      = create-branch
+	bcc      = create-branch-continuation
+	bd       = delete-branch
+	bdf      = branch -D
+	bdo      = clear-deleted-branches
 
 	# staging files
-#	a        = stage-files
-	a        = add
+	a        = stage-files
 	aa       = add --all
 	ap       = add --patch
 
 	# committing
 	cm       = commit -m
-#	cm       = commit-quick
-#	cmt      = commit-tagged
-#	cmf      = commit-fixup
-#	cmm      = commit-quick-force
-#	cms      = commit-squash
-#	ca       = commit-amend
-#	cap      = commit --no-verify --amend --no-edit
-#	up       = !sh -c 'git fetch && git rebase --ignore-date origin/${1:-master}' -
+	cm       = commit-quick
+	cmt      = commit-tagged
+	cmf      = commit-fixup
+	cmm      = commit-quick-force
+	cms      = commit-squash
+	ca       = commit-amend
+	cap      = commit --no-verify --amend --no-edit
+	up       = !sh -c 'git fetch && git rebase --ignore-date origin/${1:-master}' -
 
 	# remotes: fetching, pushing, pulling
 	f        = fetch
@@ -184,17 +183,17 @@
 
 	# rebasing
 	r        = rebase --ignore-date
-#	ri       = rebase-interactive
+	ri       = rebase-interactive
 	ra       = rebase --abort
 	rc       = rebase --continue
 	rim      = rebase --ignore-date master
-#	squash   = !sh -c 'git fetch && git rebase --ignore-date -i origin/${1:-master}' -
-#	rmc      = remove-commit
+	squash   = !sh -c 'git fetch && git rebase --ignore-date -i origin/${1:-master}' -
+	rmc      = remove-commit
 
 	# resetting / reverting
-#	resf  = !sh -c 'git reset $(git select-files)'
-#	colf  = !sh -c 'git checkout -- $(git select-files)'
-#	revf  = !sh -c 'files=$(git select-files) && git reset ${files} >/dev/null && git checkout -- ${files}'
+	resf  = !sh -c 'git reset $(git select-files)'
+	colf  = !sh -c 'git checkout -- $(git select-files)'
+	revf  = !sh -c 'files=$(git select-files) && git reset ${files} >/dev/null && git checkout -- ${files}'
 
 	# merging
 	m        = merge
