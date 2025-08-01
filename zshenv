@@ -1,5 +1,24 @@
 #!/usr/bin/env sh
 
+
+export DOTFILES_DIR="${HOME}/linux"
+
+# user-specific data locations
+export XDG_DATA_HOME="${HOME}/.local/share"     # data files (submodules)
+export XDG_CONFIG_HOME="${HOME}/.config"  # configuration files (also set in LaunchAgent)
+export XDG_STATE_HOME="${HOME}/.local/state"    # state files (logs, history, recently used files, current app state, etc)
+export XDG_CACHE_HOME="${HOME}/.cache"    # ephemeral data files
+
+export XDG_RUNTIME_DIR="${HOME}/.sockets" # ephemeral runtime files (sockets, named pipes, etc)
+export XDG_LOCALS_DIR="${DOTFILES_DIR}/locals"   # un-synced, un-tracked dotfiles (not spec)
+export XDG_SECURE_DIR="${DOTFILES_DIR}/secure"   # synced, tracked sensitive dotfiles (not spec)
+
+# base directories to search for data files in addition to the $XDG_DATA_HOME base directory.
+# export XDG_DATA_DIRS="/usr/local/share/:/usr/share/"
+
+# base directories to search for configuration files in addition to the $XDG_CONFIG_HOME base directory.
+# export XDG_CONFIG_DIRS="/etc/xdg"
+
 # Homebrew setup
 # -----------------------------
 # n-1: http://archlever.blogspot.com/2013/09/lies-damned-lies-and-truths-backed-by.html
@@ -49,3 +68,16 @@ export FZF_DEFAULT_OPTS="
 "
 export FZF_DEFAULT_COMMAND="fdfind --hidden --type f --exclude .git --exclude node_modules"
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+
+
+export MISE_DIR="${XDG_DATA_HOME}/mise"
+export MISE_JOBS="${MACHINE_CORES}"
+export MISE_RUBY_DEFAULT_PACKAGES_FILE="${XDG_CONFIG_HOME}/mise/default-libraries-ruby"
+export MISE_GO_DEFAULT_PACKAGES_FILE="${XDG_CONFIG_HOME}/mise/default-libraries-golang"
+export MISE_NODE_DEFAULT_PACKAGES_FILE="${XDG_CONFIG_HOME}/mise/default-libraries-nodejs"
+export MISE_PERL_DEFAULT_PACKAGES_FILE="${XDG_CONFIG_HOME}/mise/default-libraries-perl"
+export MISE_PYTHON_DEFAULT_PACKAGES_FILE="${XDG_CONFIG_HOME}/mise/default-libraries-python"
+
+# extra config options for installs
+export POSTGRES_EXTRA_CONFIGURE_OPTIONS="--with-uuid=e2fs --with-libxml"
+export REDIS_EXTRA_CONFIGURE_OPTIONS="BUILD_TLS=yes"
