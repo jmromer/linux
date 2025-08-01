@@ -4,12 +4,38 @@
             {
                 "type": 1,
                 "code": 125,
-                "origin_hash": "a72e58402a3ca90395439a59615f68b8"
+                "origin_hash": "ccee4263c60c4296d5b53ee21d682497"
             }
         ],
         "target_uinput": "keyboard",
         "output_symbol": "Alt_L",
-        "name": "Super L to Alt",
+        "name": "Super L to Alt L",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 100,
+                "origin_hash": "ccee4263c60c4296d5b53ee21d682497"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "Escape",
+        "name": "Alt R to ESC",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 58,
+                "origin_hash": "ccee4263c60c4296d5b53ee21d682497"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "KEY_LEFTCTRL",
+        "name": "Caps Lock to Ctrl",
         "mapping_type": "key_macro"
     },
     {
@@ -17,7 +43,7 @@
             {
                 "type": 1,
                 "code": 56,
-                "origin_hash": "a72e58402a3ca90395439a59615f68b8"
+                "origin_hash": "ccee4263c60c4296d5b53ee21d682497"
             }
         ],
         "target_uinput": "keyboard",
@@ -29,13 +55,13 @@
         "input_combination": [
             {
                 "type": 1,
-                "code": 58,
-                "origin_hash": "a72e58402a3ca90395439a59615f68b8"
+                "code": 97,
+                "origin_hash": "ccee4263c60c4296d5b53ee21d682497"
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "Control_L",
-        "name": "Caps Lock to Ctrl L",
+        "output_symbol": "Alt_R",
+        "name": "Control R to Alt R",
         "mapping_type": "key_macro"
     },
     {
@@ -43,38 +69,12 @@
             {
                 "type": 1,
                 "code": 29,
-                "origin_hash": "a72e58402a3ca90395439a59615f68b8"
+                "origin_hash": "ccee4263c60c4296d5b53ee21d682497"
             }
         ],
         "target_uinput": "keyboard",
         "output_symbol": "KEY_CAPSLOCK",
-        "name": "Ctrl L to Caps Lock",
-        "mapping_type": "key_macro"
-    },
-    {
-        "input_combination": [
-            {
-                "type": 1,
-                "code": 100,
-                "origin_hash": "a72e58402a3ca90395439a59615f68b8"
-            }
-        ],
-        "target_uinput": "keyboard",
-        "output_symbol": "Escape",
-        "name": "Alt R to Escape",
-        "mapping_type": "key_macro"
-    },
-    {
-        "input_combination": [
-            {
-                "type": 1,
-                "code": 97,
-                "origin_hash": "a72e58402a3ca90395439a59615f68b8"
-            }
-        ],
-        "target_uinput": "keyboard",
-        "output_symbol": "Alt_R",
-        "name": "Ctrl R to Alt R",
+        "name": "Control L to Caps Lock",
         "mapping_type": "key_macro"
     }
 ]
