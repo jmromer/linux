@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PROFILE_DIR="$HOME/snap/brave/531/.config/BraveSoftware/"
+BACKUP_DIR="$HOME/Dropbox/backups"
+BACKUP_FILE="brave_backup_$(date +%Y%m%d_%H%M%S).zip"
+
+mkdir -p "$BACKUP_DIR"
+
+printf "Backing up to: $BACKUP_DIR/$BACKUP_FILE ..."
+
+zip -rq "$BACKUP_DIR/$BACKUP_FILE" "$PROFILE_DIR"
+
+printf "done.\n"
