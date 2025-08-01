@@ -66,7 +66,7 @@ See [[https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/emacs-lis
 
 Don't tangle on save.
 
-#+begin_src elisp
+#+begin_src elisp :tangle no
 (remove-hook 'org-mode-hook #'+literate-enable-recompile-h)
 #+end_src
 
