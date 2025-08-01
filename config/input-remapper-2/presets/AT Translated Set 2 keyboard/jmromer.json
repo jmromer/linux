@@ -1,0 +1,67 @@
+[
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 125,
+                "origin_hash": "a72e58402a3ca90395439a59615f68b8"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "Alt_L",
+        "name": "Super L to Alt",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 56,
+                "origin_hash": "a72e58402a3ca90395439a59615f68b8"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "Super_L",
+        "name": "Alt L to Super",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 58,
+                "origin_hash": "a72e58402a3ca90395439a59615f68b8"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "Control_L",
+        "name": "Caps Lock to Ctrl L",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 29,
+                "origin_hash": "a72e58402a3ca90395439a59615f68b8"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "KEY_FN",
+        "name": "Ctrl L to Fn",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 100,
+                "origin_hash": "a72e58402a3ca90395439a59615f68b8"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "Escape",
+        "name": "Alt R to Escape",
+        "mapping_type": "key_macro"
+    }
+]
