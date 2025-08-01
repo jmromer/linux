@@ -1,3 +1,7 @@
+if [[ -n "${INSIDE_EMACS}" ]]; then
+  source "${HOME}/.zshenv"
+fi
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.state/zsh/histfile
 HISTSIZE=1000
