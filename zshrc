@@ -22,6 +22,7 @@ export SUDO_EDITOR="$EDITOR"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="$HOME/.config/emacs/bin:$PATH"
+export PATH="$HOME/linux/bin:$PATH"
 export PATH="./bin:$HOME/.local/bin:$PATH"
 
 alias ..='\cd ..; l'     # go to parent dir and list contents
