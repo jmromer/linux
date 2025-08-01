@@ -266,12 +266,20 @@ setopt complete_aliases
 #-------------------------------------------------------------
 # Zsh Plugins (load last)
 #-------------------------------------------------------------
-
-if [[ -z "${INSIDE_EMACS}" ]]; then
-  source "${HOMEBREW_PREFIX}/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-fi
+# To avoid conflicts, load these plugins in the following order if you use them:
+#
+# zsh-autosuggestions
+# zsh-syntax-highlighting
+# zsh-vim-mode
 
 . "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+if [[ -z "${INSIDE_EMACS}" ]]; then
+  source "$XDG_DATA_HOME/zsh/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
+fi
+
+export RPROMPT="${MODE_INDICATOR_PROMPT}"
+
 
 #-------------------------------------------------------------
 # CURSOR POSITIONING
@@ -365,11 +373,6 @@ cd() {
 zle -N fzf-file-widget
 zle -N prefix-2
 
-# emacs mode
-
-bindkey -M emacs '^y' accept-and-hold
-bindkey -M emacs '^o' push-line-or-edit
-
 # vi insert mode
 
 bindkey -M viins '^a' beginning-of-line
@@ -397,6 +400,13 @@ bindkey '\e[B' down-line-or-beginning-search
 bindkey -s '\eOA' '\e[A'
 bindkey -s '\eOB' '\e[B'
 
+# emacs mode
+
+bindkey -M emacs '^y' accept-and-hold
+bindkey -M emacs '^o' push-line-or-edit
+bindkey -M emacs '^p' up-line-or-beginning-search
+bindkey -M emacs '^n' down-line-or-beginning-search
+
 # all modes
 
 # bindkey "^\\" [unused]
@@ -406,13 +416,10 @@ bindkey "^x"    after-first-word # move cursor to flag-insert position
 bindkey "^z"    ctrlz
 
 # string-based
-
 bindkey -s "^h" "cd\n" # cd with pd
 bindkey -s "^\]" "g cob\n" # change branches with fzf
 
 if command -v fzf &> /dev/null; then
   source <(fzf --zsh)
   bindkey "^t"    fzf-file-widget     # invoke FZF file finder
-  zvm_after_init_commands+=('bindkey "^r" fzf-history-widget')
 fi
-
