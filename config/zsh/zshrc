@@ -264,7 +264,7 @@ setopt complete_aliases
 # zsh-syntax-highlighting
 # zsh-vim-mode
 
-. "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 if [[ -z "${INSIDE_EMACS}" ]]; then
   source "$XDG_DATA_HOME/zsh/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
@@ -311,6 +311,27 @@ if [[ -z "${INSIDE_EMACS}" ]]; then
 
     echo -ne '\e[5 q' # Use beam shape cursor on startup.
     preexec() { echo -ne '\e[5 q'; } # Use beam shape cursor for each new prompt.
+fi
+
+# yank to system clipboard
+if [[ -z "${INSIDE_EMACS}" ]]; then
+  function vi-yank-to-clipboard() {
+      zle vi-yank
+      echo -n "$CUTBUFFER" | wl-copy -o >/dev/null 2>&1
+      zle reset-prompt
+  }
+  zle -N vi-yank-to-clipboard
+
+  function vi-yank-eol-to-clipboard() {
+      zle vi-yank-eol
+      echo -n "$CUTBUFFER" | wl-copy -o >/dev/null 2>&1
+      zle reset-prompt
+  }
+  zle -N vi-yank-eol-to-clipboard
+
+  bindkey -M vicmd 'y' vi-yank-to-clipboard
+  bindkey -M visual 'y' vi-yank-to-clipboard
+  bindkey -M vicmd 'Y' vi-yank-eol-to-clipboard
 fi
 
 #-------------------------------------------------------------
