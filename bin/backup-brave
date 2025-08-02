@@ -3,14 +3,17 @@
 set -e
 
 PROFILE_DIR="${XDG_CONFIG_HOME}/BraveSoftware/Brave-Browser/"
-BACKUP_DIR="$HOME/Dropbox/backups"
-BACKUP_FILE="brave_backup_$(date +%Y%m%d_%H%M%S).zip"
 
-if [[ ! -d "$PROFILE_DIR" ]]; then
+if [[ -z "${XDG_CONFIG_HOME}" ]]; then
+  echo "ERROR: $XDG_CONFIG_HOME not set."
+  exit 1
+elif [[ ! -d "$PROFILE_DIR" ]]; then
   echo "ERROR: $PROFILE_DIR not found."
   exit 1
 fi
 
+BACKUP_DIR="$HOME/Dropbox/backups"
+BACKUP_FILE="brave_backup_$(date +%Y%m%d_%H%M%S).zip"
 mkdir -p "$BACKUP_DIR"
 
 printf "Backing up to: $BACKUP_DIR/$BACKUP_FILE ..."
