@@ -1969,7 +1969,7 @@ File paths for Org documents, Deft notes, and etc. Note that modifying
 ** agenda files
 
 #+begin_src elisp
-(map! "s-," #'org-cycle-agenda-files)
+(map! "s-C-," #'org-cycle-agenda-files)
 (map! :map org-mode-map "C-'" nil)
 #+end_src
 
