@@ -1,8 +1,15 @@
-#!/bin/bash
+#!/bin/zsh
 
-PROFILE_DIR="$HOME/snap/brave/531/.config/BraveSoftware/"
+set -e
+
+PROFILE_DIR="${XDG_CONFIG_HOME}/BraveSoftware/Brave-Browser/"
 BACKUP_DIR="$HOME/Dropbox/backups"
 BACKUP_FILE="brave_backup_$(date +%Y%m%d_%H%M%S).zip"
+
+if [[ ! -d "$PROFILE_DIR" ]]; then
+  echo "ERROR: $PROFILE_DIR not found."
+  exit 1
+fi
 
 mkdir -p "$BACKUP_DIR"
 
