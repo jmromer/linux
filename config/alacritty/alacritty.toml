@@ -11,4 +11,5 @@ bindings = [
 ]
 
 [terminal.shell]
-program = "zellij"
+program = "zsh"
+args = ["-l", "-c", "tmux new -As alacritty"]
