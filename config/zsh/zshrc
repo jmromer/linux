@@ -1,6 +1,6 @@
 source ~/.zshenv
 
-eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
+# eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
 eval "$(mise activate zsh)"
 
 # Lines configured by zsh-newuser-install
