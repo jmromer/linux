@@ -1,0 +1,12 @@
+[general]
+import = [ "~/.config/alacritty/theme.toml", "~/.config/alacritty/font.toml", "~/.config/alacritty/font-size.toml", "~/.config/alacritty/shared.toml" ]
+
+[keyboard]
+bindings = [
+  { key = "C", mods = "Super", action = "Copy" },
+  { key = "V", mods = "Super", action = "Paste" },
+]
+
+[terminal.shell]
+program = "zsh"
+args = ["-l", "-c", "tmux new -As alacritty"]                                                                                #
