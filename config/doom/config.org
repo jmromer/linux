@@ -83,9 +83,9 @@ Provide a command to trigger tangling manually.
 
 Set fonts. NB: =doom-variable-pitch-font= could use updating.
 #+begin_src elisp
-(setq doom-font (font-spec :family "Fira Code" :size 20)
-      doom-variable-pitch-font (font-spec :family "SF Pro Display" :size 18)
-      doom-big-font (font-spec :family "Fira Code" :size 30)
+(setq doom-font (font-spec :family "Fira Code" :size 18)
+      doom-variable-pitch-font (font-spec :family "SF Pro Display" :size 28)
+      doom-big-font (font-spec :family "Fira Code" :size 28)
       doom-theme 'doom-one
       display-line-numbers-type 'relative
       fancy-splash-image nil
