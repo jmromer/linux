@@ -37,5 +37,5 @@ git clone https://github.com/ful1e5/apple_cursor
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install gcc python-tk zsh cmake libtool delta tmux
+brew install gcc python-tk zsh cmake libtool delta usage
 ```
