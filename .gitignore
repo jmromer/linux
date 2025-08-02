@@ -295,6 +295,7 @@ zsdoc/data
 # End of https://www.toptal.com/developers/gitignore/api/vim,emacs,linux,python,zsh
 
 /config/.gsd-keyboard.settings-ported
+/config/BraveSoftware/
 /config/Code/
 /config/QtProject.conf
 /config/Typora/
