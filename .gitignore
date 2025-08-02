@@ -313,6 +313,7 @@ zsdoc/data
 /config/ibus/
 /config/lazygit/
 /config/mimeapps.list
+/config/goa-*
 /config/monitors.xml
 /config/nvim/
 /config/pulse/
