@@ -73,6 +73,19 @@ Start Emacs maximized.
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 #+end_src
 
+The first number is the transparency when the frame is focused, the second when
+unfocused. Values range from 0 (completely transparent) to 100 (opaque).
+#+begin_src elisp
+(set-frame-parameter (selected-frame) 'alpha '(99 . 98))
+(add-to-list 'default-frame-alist '(alpha . (99 . 98)))
+#+end_src
+
+Omit background coloring in terminal emacs
+#+begin_src elisp
+(unless (display-graphic-p)
+  (set-face-background 'default "unspecified-bg"))
+#+end_src
+
 Darken the base background slightly.
 #+begin_src elisp
 (when (display-graphic-p)
