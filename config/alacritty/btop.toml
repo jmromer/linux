@@ -1,7 +1,7 @@
-
 [window]
 dimensions.columns = 121
 dimensions.lines = 40
+startup_mode = "Maximized"
 
 [general]
 # Used by the Activity.desktop app
