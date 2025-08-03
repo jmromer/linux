@@ -1,4 +1,4 @@
-source ~/.zshenv
+source "${XDG_CONFIG_HOME}/zsh/zshenv"
 
 # eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
 eval "$(mise activate zsh)"
