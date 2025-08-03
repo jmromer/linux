@@ -73,6 +73,48 @@ Start Emacs maximized.
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 #+end_src
 
+Darken the base background slightly.
+#+begin_src elisp
+(when (display-graphic-p)
+  (defun +config:darken-background ()
+    (let* ((default-bg (face-background 'default))
+           (darker-bg (doom-darken default-bg 0.1)))
+      (set-face-background 'default darker-bg)))
+  (+config:darken-background)
+  (add-hook! doom-load-theme #'+config:darken-background)
+nil)
+#+end_src
+
+Use base background for org-mode source blocks
+#+begin_src elisp
+(after! org
+  (defun +config:fix-org-backgrounds ()
+    (if (display-graphic-p)
+        ;; For GUI Emacs - use the default background
+        (let ((default-bg (face-background 'default)))
+          (set-face-background 'org-block default-bg)
+          (set-face-background 'org-block-begin-line (doom-darken default-bg 0.10))
+          (set-face-background 'org-block-end-line default-bg)
+          (set-face-background 'org-code default-bg)
+          (set-face-background 'org-verbatim default-bg)
+          (set-face-background 'org-quote default-bg)
+          (set-face-background 'org-verse default-bg))
+      ;; For terminal Emacs
+      (set-face-background 'org-block "unspecified-bg")
+      (set-face-background 'org-block-begin-line "unspecified-bg")
+      (set-face-attribute 'org-block-begin-line nil :underline "gray25")
+      (set-face-background 'org-block-end-line "unspecified-bg")
+      (set-face-attribute 'org-block-end-line nil :underline nil)
+      (set-face-background 'org-code "unspecified-bg")
+      (set-face-background 'org-verbatim "unspecified-bg")
+      (set-face-background 'org-quote "unspecified-bg")
+      (set-face-background 'org-verse "unspecified-bg")))
+  (+config:fix-org-backgrounds) ;; Apply immediately
+  ;; Also apply after theme changes
+  (add-hook! doom-load-theme #'+config:fix-org-backgrounds)
+  (add-hook! org-mode #'+config:fix-org-backgrounds))
+#+end_src
+
 Toggle light/dark theme based on the current OS setting.
 
 #+begin_src elisp :tangle no
@@ -351,6 +393,10 @@ Allow remembering risky local variables.
   (add-to-list '+word-wrap-disabled-modes mode))
 
 (+global-word-wrap-mode)
+
+(defun +config:disable-word-wrap ()
+  (+word-wrap-mode -1))
+(add-hook! org-mode #'+config:disable-word-wrap)
 #+end_src
 
 * +utilities
