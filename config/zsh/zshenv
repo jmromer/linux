@@ -1,60 +1,28 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
-export DOTFILES_DIR="${HOME}/Projects/dotfiles-linux"
+export DOTFILES_DIR="${HOME}/.dotfiles"
+export MACHINE_CORES=$(echo "$(nproc) - 1" | bc)
+# n-1: http://archlever.blogspot.com/2013/09/lies-damned-lies-and-truths-backed-by.html
 
 # user-specific data locations
-export XDG_DATA_HOME="${HOME}/.local/share"     # data files (submodules)
-export XDG_CONFIG_HOME="${HOME}/.config"  # configuration files (also set in LaunchAgent)
-export XDG_STATE_HOME="${HOME}/.local/state"    # state files (logs, history, recently used files, current app state, etc)
-export XDG_CACHE_HOME="${HOME}/.cache"    # ephemeral data files
+export XDG_DATA_HOME="${HOME}/.local/share"  # data files (submodules)
+export XDG_CONFIG_HOME="${HOME}/.config"     # configuration files (also set in LaunchAgent)
+export XDG_STATE_HOME="${HOME}/.local/state" # state files (logs, history, recently used files, current app state, etc)
+export XDG_CACHE_HOME="${HOME}/.cache"       # ephemeral data files
 
 # DO NOT SET: XDG_RUNTIME_DIR="${HOME}/.sockets" # ephemeral runtime files (sockets, named pipes, etc)
 export XDG_LOCALS_DIR="${DOTFILES_DIR}/locals"   # un-synced, un-tracked dotfiles (not spec)
 export XDG_SECURE_DIR="${DOTFILES_DIR}/secure"   # synced, tracked sensitive dotfiles (not spec)
 
-# base directories to search for data files in addition to the $XDG_DATA_HOME base directory.
-# export XDG_DATA_DIRS="/usr/local/share/:/usr/share/"
-
-# base directories to search for configuration files in addition to the $XDG_CONFIG_HOME base directory.
-# export XDG_CONFIG_DIRS="/etc/xdg"
-
+# Zsh
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 
-# Homebrew setup
-# -----------------------------
-# n-1: http://archlever.blogspot.com/2013/09/lies-damned-lies-and-truths-backed-by.html
-case "$(uname -ps)" in
-  Linux*)
-    MACHINE="linux"
-    HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
-    MACHINE_CORES=$(echo "$(nproc) - 1" | bc)
-  ;;
-  Darwin\ arm*)
-    MACHINE="apple"
-    HOMEBREW_PREFIX="/opt/homebrew"
+# Homebrew
+export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 
-    if command -v /usr/sbin/sysctl >/dev/null; then
-      MACHINE_CORES=$(echo "$(/usr/sbin/sysctl -n hw.ncpu) - 1" | bc)
-    fi
-  ;;
-  Darwin*)
-    MACHINE="intel-mac"
-    HOMEBREW_PREFIX="/usr/local"
-    if command -v /usr/sbin/sysctl >/dev/null; then
-      MACHINE_CORES=$(echo "$(/usr/sbin/sysctl -n hw.ncpu) - 1" | bc)
-    fi
-  ;;
-esac
-
-if [[ -z "${MACHINE_CORES}" ]]; then
-  MACHINE_CORES=8
-  echo "Warning: MACHINE_CORES set to default value of ${MACHINE_CORES}."
-fi
-
-export MACHINE
-export MACHINE_CORES
-export HOMEBREW_PREFIX
-
+# FZF
+export FZF_DEFAULT_COMMAND="fdfind --hidden --type f --exclude .git --exclude node_modules"
+export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 export FZF_DEFAULT_OPTS="
   --no-multi
   --exact
@@ -63,9 +31,8 @@ export FZF_DEFAULT_OPTS="
   --bind='ctrl-f:preview-down'
   --bind='ctrl-b:preview-up'
 "
-export FZF_DEFAULT_COMMAND="fdfind --hidden --type f --exclude .git --exclude node_modules"
-export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 
+# Mise
 export MISE_DIR="${XDG_DATA_HOME}/mise"
 export MISE_JOBS="${MACHINE_CORES}"
 export MISE_RUBY_DEFAULT_PACKAGES_FILE="${XDG_CONFIG_HOME}/mise/default-libraries-ruby"
@@ -79,6 +46,7 @@ export POSTGRES_EXTRA_CONFIGURE_OPTIONS="--with-uuid=e2fs --with-libxml"
 export REDIS_EXTRA_CONFIGURE_OPTIONS="BUILD_TLS=yes"
 
 export ORG_HOME="${HOME}/Org"
+export GRIND_DATA_DIR="${XDG_SECURE_DIR}/state/grind"
 
 # --------- PATH --------
 [[ -z "${DOTFILES_DIR}" ]]    && echo "WARNING: DOTFILES_DIR is not set in ${0}"
