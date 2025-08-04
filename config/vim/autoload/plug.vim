@@ -1,0 +1,1 @@
+/home/jmromer/.local/share/vim-plug/plug.vim
