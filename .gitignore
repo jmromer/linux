@@ -304,6 +304,7 @@ zsdoc/data
 /config/autostart/
 /config/dconf/
 /config/emacs/
+/config/enchant/
 /config/evolution/
 /config/fastfetch/
 /config/flameshot/
