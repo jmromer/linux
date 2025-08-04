@@ -14,6 +14,49 @@ export XDG_CACHE_HOME="${HOME}/.cache"       # ephemeral data files
 export XDG_LOCALS_DIR="${DOTFILES_DIR}/locals"   # un-synced, un-tracked dotfiles (not spec)
 export XDG_SECURE_DIR="${DOTFILES_DIR}/secure"   # synced, tracked sensitive dotfiles (not spec)
 
+# --------- 
+export AWS_CONFIG_FILE="${XDG_SECURE_DIR}/config/aws/config"
+export AWS_SHARED_CREDENTIALS_FILE="${XDG_SECURE_DIR}/config/aws/credentials"
+export BUNDLE_DEFAULT_INSTALL_USES_PATH="${XDG_CACHE_HOME}/bundler"
+export BUNDLE_USER_CACHE="${XDG_CACHE_HOME}/bundler"
+export CARGO_HOME="${XDG_DATA_HOME}/rust/cargo"
+export CUDA_CACHE_PATH="${XDG_CACHE_HOME}/nv"
+export CUPS_CACHEDIR="${XDG_CONFIG_HOME}/cups"
+export CURLOPT_NETRC_FILE="${XDG_SECURE_DIR}/config/netrc"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export DOOMDIR="${XDG_CONFIG_HOME}/doom"
+export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
+export GEMRC="${XDG_CONFIG_HOME}/gem/gemrc"
+export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
+# export GNUPGHOME="${XDG_SECURE_DIR}/gnupg"
+export GRIND_DATA_DIR="${XDG_SECURE_DIR}/state/grind"
+export GRIPHOME="${XDG_CONFIG_HOME}/grip"
+export GTAGSCONF="${XDG_CONFIG_HOME}/gtags/gtags.conf"
+export HEX_HOME="${XDG_STATE_HOME}/hex"
+export INPUTRC="${XDG_CONFIG_HOME}/inputrc"
+export IPYTHONDIR="${XDG_DATA_HOME}/ipython"
+export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME}/jupyter"
+export LESSHISTFILE="${XDG_DATA_HOME}/less/history"
+export LESSKEY="${XDG_CONFIG_HOME}/less/keys"
+export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node/repl_history"
+export NPM_CONFIG_CACHE="${XDG_CACHE_HOME}/npm"
+export NPM_CONFIG_DEVDIR="${XDG_CACHE_HOME}/npm/gyp"
+export NPM_CONFIG_PREFIX="${XDG_DATA_HOME}/npm"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+export PERL_CPANM_HOME="${XDG_CACHE_HOME}/cpanm"
+export PSQLRC="${XDG_CONFIG_HOME}/psql/psqlrc"
+export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
+export REDISCLI_HISTFILE="${XDG_STATE_HOME}/redis/rediscli_history"
+export RUBY_DEBUG_HISTORY_FILE="${XDG_STATE_HOME}/rdbg_history"
+export RUSTUP_HOME="${XDG_DATA_HOME}/rust/rustup"
+export SOLARGRAPH_CACHE="${XDG_CACHE_HOME}/solargraph"
+export TLDR_CACHE_DIR="${XDG_CACHE_HOME}/tldr"
+export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+export ZELLIJ_CONFIG_DIR="${XDG_CONFIG_HOME}/zellij"
+# --------- 
+
 # Zsh
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 
@@ -46,7 +89,6 @@ export POSTGRES_EXTRA_CONFIGURE_OPTIONS="--with-uuid=e2fs --with-libxml"
 export REDIS_EXTRA_CONFIGURE_OPTIONS="BUILD_TLS=yes"
 
 export ORG_HOME="${HOME}/Org"
-export GRIND_DATA_DIR="${XDG_SECURE_DIR}/state/grind"
 
 # --------- PATH --------
 [[ -z "${DOTFILES_DIR}" ]]    && echo "WARNING: DOTFILES_DIR is not set in ${0}"
