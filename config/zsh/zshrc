@@ -41,7 +41,7 @@ alias vim=nvim
 # ALIASES: Postfix
 #-------------------------------------------------------------
 alias -g G='| grep --line-number --context=1' # grep w/ context
-alias -g C="| pbcopy" # copy to clipboard
+alias -g C="| wl-copy -o" # copy to clipboard
 alias -g P='| less'   # send to pager
 
 #-------------------------------------------------------------
