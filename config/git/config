@@ -211,11 +211,6 @@
 [ssh]
 	postbuffer = 524288000
 
-[user]
-	name = Jacob Romer
-	email = jmromer@tensorconclave.com
-	signingkey = 11878358475A508A381155478E627277FC2F725F
-
 [include]
 	path = ~/.dotfiles/secure/config/git/config
 	path = ~/.dotfiles/locals/config/git/config
