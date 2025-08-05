@@ -12,6 +12,7 @@ extract_url
 fzf
 gcc
 gdbm
+git
 git-delta
 gitstatus
 glib
@@ -52,6 +53,7 @@ pinentry
 python-tk@3.13
 python@3.13
 readline
+source-highlight
 sqlite
 tcl-tk
 tmux
