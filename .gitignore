@@ -305,6 +305,7 @@ zsdoc/data
 /config/dconf/
 /config/emacs/
 /config/enchant/
+/config/glow/
 /config/evolution/
 /config/fastfetch/
 /config/flameshot/
