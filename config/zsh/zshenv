@@ -1,7 +1,8 @@
 #!/bin/bash
 
 export DOTFILES_DIR="${HOME}/.dotfiles"
-export MACHINE_CORES=$(echo "$(nproc) - 1" | bc)
+export MACHINE="Linux"  # uname -s
+export MACHINE_CORES=11 # $(echo "$(nproc) - 1" | bc)
 # n-1: http://archlever.blogspot.com/2013/09/lies-damned-lies-and-truths-backed-by.html
 
 # user-specific data locations
