@@ -14,7 +14,7 @@ export XDG_CACHE_HOME="${HOME}/.cache"       # ephemeral data files
 export XDG_LOCALS_DIR="${DOTFILES_DIR}/locals"   # un-synced, un-tracked dotfiles (not spec)
 export XDG_SECURE_DIR="${DOTFILES_DIR}/secure"   # synced, tracked sensitive dotfiles (not spec)
 
-# --------- 
+# ---------
 export AWS_CONFIG_FILE="${XDG_SECURE_DIR}/config/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="${XDG_SECURE_DIR}/config/aws/credentials"
 export BUNDLE_DEFAULT_INSTALL_USES_PATH="${XDG_CACHE_HOME}/bundler"
@@ -28,7 +28,7 @@ export DOOMDIR="${XDG_CONFIG_HOME}/doom"
 export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
 export GEMRC="${XDG_CONFIG_HOME}/gem/gemrc"
 export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
-# export GNUPGHOME="${XDG_SECURE_DIR}/gnupg"
+export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 export GRIND_DATA_DIR="${XDG_SECURE_DIR}/state/grind"
 export GRIPHOME="${XDG_CONFIG_HOME}/grip"
 export GTAGSCONF="${XDG_CONFIG_HOME}/gtags/gtags.conf"
@@ -55,7 +55,7 @@ export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export ZELLIJ_CONFIG_DIR="${XDG_CONFIG_HOME}/zellij"
-# --------- 
+# ---------
 
 # Zsh
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
