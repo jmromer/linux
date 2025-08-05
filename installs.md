@@ -39,3 +39,13 @@ git clone https://github.com/ful1e5/apple_cursor
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install gcc python-tk zsh cmake libtool delta usage
 ```
+
+## xdg config
+
+```
+# /etc/zsh/zshenv: system-wide .zshenv file for zsh(1).
+
+# Move zsh dir to the default XDG_CONFIG_HOME
+# Needed here for zshenv to be sourced correctly
+export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
+```
