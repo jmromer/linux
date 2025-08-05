@@ -86,12 +86,9 @@
 [difftool]
 	prompt = false
 
-[diff]
-	tool = vimdiff
-
 [pager]
 	diff   = delta
-	log    = delta
+	log    = less
 	stash  = delta
 	reflog = delta
 	show   = delta
