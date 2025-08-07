@@ -780,6 +780,7 @@ From the normal state in dired mode:
         :localleader
         :n "," #'casual-dired-tmenu))
 (add-hook! dired-mode #'+config:keybindings:dired)
+#+end_src
 
 * evil
 
