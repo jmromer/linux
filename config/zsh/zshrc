@@ -231,12 +231,10 @@ fi
 #-------------------------------------------------------------
 # Set terminal title dynamically (zellij displays in ribbon)
 #-------------------------------------------------------------
-function set_title() {
-  print -Pn "\e]0;%~$(git_branch)\a"
-}
-
-# Hook the title update to run before each prompt
-precmd_functions+=(set_title)
+ set_title() {
+  print -Pn "\e]0;%~\a"
+ }
+ precmd_functions+=(set_title)
 
 #-------------------------------------------------------------
 # COMMAND COMPLETION
