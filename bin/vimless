@@ -17,8 +17,8 @@ if [ ! -f "${VIMRC_PATH}" ]; then
   exit 1
 fi
 
-# Process stdin: strip leading line numbers, trailing whitespace, and final newlines
+# Process stdin: strip leading line numbers, trailing whitespace, keep blank lines
 sed -E 's/^[[:space:]]*[0-9]+[[:space:]]*//g' |
   sed 's/[[:space:]]*$//' |
-  awk 'BEGIN{RS="\n"; ORS="\n"} /./ {lines[++n] = $0} END {for(i=1; i<=n; i++) print lines[i]}' |
+  awk 'BEGIN{RS="\n"; ORS="\n"} {lines[++n] = $0} END {for(i=1; i<=n; i++) print lines[i]}' |
   nvim -u "$VIMRC_PATH" -c 'normal Gzz' -
