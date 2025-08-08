@@ -105,6 +105,7 @@ PATH+=":${HOMEBREW_PREFIX}/bin"
 PATH+=":${HOMEBREW_PREFIX}/sbin"
 PATH+=":${XDG_CONFIG_HOME}/emacs/bin"
 PATH+=":${HOME}/.local/bin"
+PATH+=":/usr/local/cuda-12.6/bin"
 PATH+=":/usr/local/sbin"
 PATH+=":/usr/local/bin"
 PATH+=":/usr/sbin"
@@ -115,3 +116,5 @@ PATH+=":/usr/games"
 PATH+=":/usr/local/games"
 PATH+=":/snap/bin"
 export PATH
+
+export LD_LIBRARY_PATH="/usr/local/cuda-12.6/lib64:${LD_LIBRARY_PATH}"
